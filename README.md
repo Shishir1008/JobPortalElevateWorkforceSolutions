@@ -1,111 +1,126 @@
+# **Job Portal Application**
 
-# Job Portal Application
+A full-stack job portal connecting job seekers with employers, built using **Node.js, Express, MySQL, and EJS**.
 
-A full-stack web application connecting job seekers with employers. Built with Node.js, Express, MySQL, and EJS templating.
+---
 
+## **Project Structure**
+```
+job-portal-main/
+│── config/              # Configuration files (e.g., database settings)
+│   └── config.js
+│── controllers/         # Controller functions for handling requests
+│── middleware/          # Middleware for authentication and validation
+│── migrations/          # Sequelize migrations for database setup
+│── models/              # Database models using Sequelize
+│── node_modules/        # Dependencies (excluded via .gitignore)
+│── public/              # Static files (CSS, JS, Images)
+│── routes/              # API and web routes
+│── views/               # EJS templates for frontend rendering
+│   ├── adminDashboard.ejs
+│   ├── companyRegister.ejs
+│   ├── employerDashboard.ejs
+│   ├── home.ejs
+│   ├── jobDashboard.ejs
+│   ├── jobseekerDashboard.ejs
+│   ├── login.ejs
+│   ├── register.ejs
+│── .env                 # Environment variables (excluded via .gitignore)
+│── .gitignore           # Files and directories to ignore in Git
+│── app.js               # Main entry point of the application
+│── package.json         # Project dependencies and scripts
+│── package-lock.json    # Lockfile for package dependencies
+│── README.md            # Project documentation
+```
 
-![Job Portal Screeshot](image.png)
-Register page:
-![Register](image-1.png)
+---
 
-Login page:
-![Login](image-2.png)
-
-Dashboard page:
-![Dashboard](image-3.png)
-
-There are many pages in the application, including: job seeker dashboard, job seeker login, job seeker register, Company dashboard, Company login, Company register, job posting, job seeker profile, job seeker resume and many more.
-
-There are three main roles in the application:
-1. **Job Seeker**: Users can create an account, upload their resume, and apply for jobs.
-2. **Employer**: Users can create an account, post job openings, and view applications.
-3. **Admin**: View job seeker account, company account, job postings, and manage the application.
-
-
-
-## Features
-
-- User authentication (Job Seeker & Employer)
-- Job post creation and management
+## **Features**
+- Secure authentication for **Job Seekers** and **Employers**
+- Job posting and application management
 - Resume upload functionality
+- User role-based dashboards (Admin, Employer, Job Seeker)
 - Application tracking system
-- Responsive web design
-- Session-based authentication
-- Secure password hashing
-- RESTful API endpoints
+- Secure password hashing and session-based authentication
+- Responsive user interface with EJS templating
 
-## Technologies Used
+---
 
-## 🖥️ Frontend
-- ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)  
-- ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)  
-- ![EJS](https://img.shields.io/badge/EJS-8A2BE2?style=for-the-badge&logo=javascript&logoColor=white)  
+## **Technologies Used**
 
-## ⚙️ Backend
-- ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)  
-- ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)  
+### **Frontend**
+- **HTML5**
+- **CSS3**
+- **EJS** (Embedded JavaScript Templates)
 
-## 🗄️ Database
-- ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)  
-- ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=sequelize&logoColor=white)  
+### **Backend**
+- **Node.js**
+- **Express.js**
 
-## 📦 Dependencies
-- ![bcrypt](https://img.shields.io/badge/bcrypt-4A4A4A?style=for-the-badge&logo=npm&logoColor=white) 
-- ![cookie-parser](https://img.shields.io/badge/cookie--parser-FF69B4?style=for-the-badge)  
-- ![dotenv](https://img.shields.io/badge/dotenv-6E5494?style=for-the-badge) 
-- ![express-session](https://img.shields.io/badge/express--session-000000?style=for-the-badge)  
-- ![jsonwebtoken](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white) 
-- ![multer](https://img.shields.io/badge/multer-FF4500?style=for-the-badge)   
-- ![mysql2](https://img.shields.io/badge/mysql2-4479A1?style=for-the-badge&logo=mysql&logoColor=white)  
-- ![nodemon](https://img.shields.io/badge/nodemon-76D04B?style=for-the-badge&logo=nodemon&logoColor=white) 
+### **Database**
+- **MySQL**
+- **Sequelize ORM**
 
-## 🛠️ Development Tools
-- ![MySQL Workbench](https://img.shields.io/badge/MySQL%20Workbench-00758F?style=for-the-badge&logo=mysql&logoColor=white)  
-- ![Sequelize CLI](https://img.shields.io/badge/Sequelize%20CLI-52B0E7?style=for-the-badge&logo=sequelize&logoColor=white)  
+### **Dependencies**
+- **bcrypt** (Password hashing)
+- **cookie-parser** (Session management)
+- **dotenv** (Environment variables)
+- **express-session** (Session handling)
+- **jsonwebtoken** (JWT authentication)
+- **multer** (File uploads)
+- **mysql2** (MySQL connection)
+- **nodemon** (Development server auto-restart)
 
-## Installation
+---
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/kushpanthi/job-portal.git
-   cd job-portal
+## **Installation and Setup**
 
-2. **Install dependencies**
+### **1. Clone the Repository**
+```bash
+git clone https://github.com/Shishir1008/JobPortalElevateWorkforceSolutions.git
+cd JobPortalElevateWorkforceSolutions
+```
 
-    ```bash
-    npm install
+### **2. Install Dependencies**
+```bash
+npm install
+```
 
-3. **Database Setup**
-   
-- Create a new MySQL database and update the `config/config.js` file with your database credentials   
-- Run the following command to create the database schema
+### **3. Configure Database**
+- Create a MySQL database:
+```sql
+CREATE DATABASE job_portal;
+```
+- Update database credentials in `config/config.js`
+- Run migrations to set up tables:
+```bash
+npx sequelize-cli db:migrate
+```
 
-- Create MySQL database:
+### **4. Set Up Environment Variables**
+Create a `.env` file in the root directory:
+```env
+PORT=3000
+JWT_SECRET=your_jwt_secret_key
+```
 
-    ```sql
-    CREATE DATABASE job_portal;
+### **5. Start the Server**
+```bash
+npm start
+```
 
-- Run migrations:
+### **6. Access the Application**
+Open a browser and visit:
+```
+http://localhost:3000
+```
 
-    ```bash
-    npx sequelize-cli db:migrate
+---
 
-4. **Configuration**
+## **Future Improvements**
+- Implement real-time job notifications
+- Add profile picture upload functionality
+- Improve UI with modern frontend frameworks like React
 
-   Create .env file in root directory:
-
-    ```.env
-    PORT=3000
-    JWT_SECRET=your_jwt_secret_key
-
-6. **Start the development server**
-
-    ```bash
-    npm start
-
-7. **Access the application**
-   
-   Visit http://localhost:3000 in your browser
-
-
+---
 
