@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      color: #333;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .login-container h1 {
+      margin-bottom: 15px;
+    }
+
+    .input-container {
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .input-container input {
+      width: 90%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .button-container button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #ff6f61, #ff9a9e);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-size: 14px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .message.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .message.error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .link {
+      margin-top: 10px;
+      display: block;
+      text-decoration: none;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login</h1>
+
+    <!-- Success or Error Message Display -->
+    <div id="message-container"></div>
+
+    <form action="/auth/login" method="POST">
+      <div class="input-container">
+        <input type="email" name="email" placeholder="Your Email" required>
+      </div>
+
+      <div class="input-container">
+        <input type="password" name="password" placeholder="Password" required>
+      </div>
+
+      <div class="button-container">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+
+    <a href="/register" class="link">Create an Account</a>
+  </div>
+
+  <script>
+    // Get URL Parameters to Show Success or Error Message
+    const params = new URLSearchParams(window.location.search);
+    const success = params.get('success');
+    const error = params.get('error');
+    const messageContainer = document.getElementById('message-container');
+
+    if (success === 'true') {
+      messageContainer.innerHTML = '<div class="message success">Login Successful!</div>';
+    } else if (error === 'invalid') {
+      messageContainer.innerHTML = '<div class="message error">Invalid email or password. Please try again.</div>';
+    }
+  </script>
+</body>
+</html>
